@@ -8,6 +8,10 @@ A lightweight, always-on systemd daemon for Framework 13 laptops running Fedora.
 
 On Framework 13 machines under Fedora, the system often asks for a fingerprint when the lid is closed and docked, but the scanner is not accessible with the lid down. In GNOME, there’s no built-in fallback, so users must reopen the lid or cancel commands. This daemon solves that by toggling `fprintd` off when closed and docked (forcing a password prompt) and turning it back on when the lid opens.
 
+## Design
+
+This daemon avoids using the legacy ACPI daemon (acpid) because on Fedora, systemd-logind intercepts lid events directly, preventing acpid from reliably firing scripts. We are not using inotify on /proc/acpi/button/lid/LID0/state because that file does not emit filesystem change events under the virtual /proc filesystem. Instead, we use a simple, polling-based systemd daemon that checks lid state and display connections every 15 seconds, ensuring consistent behavior across suspends and hardware configurations.
+
 ---
 
 ## Table of Contents
