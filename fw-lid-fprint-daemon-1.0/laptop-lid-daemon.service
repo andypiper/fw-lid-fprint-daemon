@@ -1,0 +1,12 @@
+[Unit]
+Description=Fingerprint toggle daemon (lid + externals)
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/laptop-lid-daemon.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
