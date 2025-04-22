@@ -37,13 +37,13 @@ install -m 0644 laptop-lid-daemon.service \
 
 %post
 # Reload systemd and enable+start the daemon
-%systemd_post fw-lid-fprint-daemon.service
+%systemd_post laptop-lid-daemon.service
 
 %preun
-%systemd_preun fw-lid-fprint-daemon.service
+%systemd_preun laptop-lid-daemon.service
 
 %postun
-%systemd_postun_with_restart fw-lid-fprint-daemon.service
+%systemd_postun_with_restart laptop-lid-daemon.service
 
 %changelog
 * Tue Apr 22 2025 Andy Piper <andypiper@omg.lol> - 1.0-1
