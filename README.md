@@ -93,14 +93,14 @@ systemctl status laptop-lid-daemon.service
 
 1. Clone the repository:  
    ```bash
-git clone https://github.com/andypiper/fw-lid-fprint-daemon.git
-cd fw-lid-fprint-daemon
+   git clone https://github.com/andypiper/fw-lid-fprint-daemon.git
+   cd fw-lid-fprint-daemon
    ```
 2. Build and install the RPM for testing:  
    ```bash
-rpmbuild -ba fw-lid-fprint-daemon.spec
-sudo dnf install ~/rpmbuild/RPMS/noarch/fw-lid-fprint-daemon-1.0-1.noarch.rpm
-journalctl -f -t lid-daemon
+   rpmbuild -ba fw-lid-fprint-daemon.spec
+   sudo dnf install ~/rpmbuild/RPMS/noarch/fw-lid-fprint-daemon-1.0-1.noarch.rpm
+   journalctl -f -t lid-daemon
    ```
 
 ---
